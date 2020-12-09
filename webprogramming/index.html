@@ -1,123 +1,23 @@
-<!-- This file is used to touch up on a few html concepts  -->
-
-<!-- 
-    Unoder list to make a simple header
-    
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
-    <style>
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333333;
+    <script>
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Paragraph changed.";
         }
-
-        li {
-            float: left;
-        }
-
-        li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 16px;
-            text-decoration: none;
-        }
-
-        li a:hover {
-            background-color: #111111;
-        }
-    </style>
+    </script>
 </head>
 
 <body>
 
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#about">About</a></li>
-    </ul>
+    <h1>A Web Page</h1>
+    <p id="demo">A Paragraph</p>
+    <button type="button" onclick="myFunction()">Try it</button>
+    <script src="./app.js">  </script>
+
 
 </body>
 
-</html> -->
-
-
-<!-- Order list in HTML - The list attribute:
-
-type "1": The list items will be numbered wuth numbers
-type "A": The list items will be numbered with uppercase letters
-type "a": The list items will be numbered with lowercase letters
-type "I": The list items will be numberes with upperacase roman niumbers
-type "i": The list items will be numbered with lowercase roman numbers -->
-
-
-<!-- 
-Block-level Elements:
-
-A block-level element always starts on a new line and takes up the full width available (stretches out to the left and
-right as far as it can). -->
-
-<!-- 
-<address>
-<article>
-<aside>
-<blockquote><canvas>
-<dd>
-<div>
-<dl>
-<dt>
-<fieldset>
-<figcaption>
-<figure>
-<footer>
-<form>
-<h1>-<h6>
-<header>                                                         <hr>
-<li>
-<main>
-<nav><noscript>                                                  <ol>
-<p>
- <pre><section><table><tfoot><ul><video> 
--->
-
-
-
-<!-- 
-Inline Elements:
-
-An inline element does not start on a new line and it only takes up as much width as necessary.
-
-<a><abbr><acronym><b><bdo><big><br><button><cite><code><dfn><em><i><img><input><kbd><label><map><object><output><q><samp><script><select><small><span><strong><sub><sup><textarea><time><tt><var>
-
-
-HTML head Elements:
-                                                                                                                                <head>	Defines information about the document
-<title>	Defines the title of a document
-<base>	Defines a default address or a default target for all links on a page
-<link>	Defines the relationship between a document and an external resource
-<meta>	Defines metadata about an HTML document
-<script>	Defines a client-side script
-<style>	Defines style information for a document -->
-
-
-<!DOCTYPE html>
-<html>
-
-<body>
-
-    <h2>My First JavaScript</h2>
-
-    <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">
-        Click me to display Date and Time.</button>
-
-    <p id="demo"></p>
-
-</body>
 
 </html>
