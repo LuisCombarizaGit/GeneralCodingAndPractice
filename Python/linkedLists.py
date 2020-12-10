@@ -20,6 +20,21 @@ class LinkedList:
             print(temp.data)
             temp = temp.next
 
+    # Function to add a node at the front of list   TIME COMPLEX: 0(1) constant
+    def push(self,new_data):
+        new_node = Node(new_data)
+        new_node.next = self.head
+        self.head = new_node
+
+
+    # Function that inserts node after a given location TIME COMPLEX: 0(1) constant
+    def insertAfter(self,prev_node,new_data):
+        new_node = Node(new_data)
+        new_node.next = prev_node.next
+        prev_node.next = new_node
+
+
+
 
 if __name__== '__main__':
     linkedlist = LinkedList() # creating the linked list
@@ -32,5 +47,12 @@ if __name__== '__main__':
     second.next = third
 
     linkedlist.printlist()
+    print()
+
+    linkedlist.insertAfter(second,6)
+
+
+    linkedlist.printlist()
+
 
 
