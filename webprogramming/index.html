@@ -5,21 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-
   <body>
-    <p id="demo"></p>
+    <h2>JavaScript Array Methods</h2>
+
+    <h2>shift()</h2>
+
+    <p>
+      The shift() method removes the first element of an array (and "shifts" all
+      other elements to the left):
+    </p>
+
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+
     <script>
-      var fruits, text;
-      fruits = ["Banana", "Orange", "Apple", "Mango"];
-
-      text = "<ul>";
-      fruits.forEach(myFunction);
-      text += "</ul>";
-      document.getElementById("demo").innerHTML = text;
-
-      function myFunction(value) {
-        text += "<li>" + value + "</li>";
-      }
+      var fruits = ["Banana", "Orange", "Apple", "Mango"];
+      document.getElementById("demo1").innerHTML = fruits;
+      fruits.pop();
+      document.getElementById("demo2").innerHTML = fruits;
     </script>
   </body>
 </html>

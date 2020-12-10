@@ -1,4 +1,8 @@
-/* The Difference Between Undefined and Null
+/* 
+
+------------------ JAVASCRIP NOTES --------------------
+
+The Difference Between Undefined and Null
 
 typeof undefined -------> undefined
 typeof null --------> object
@@ -30,6 +34,18 @@ Common HTML Events :
 
 Arrays in JavaScript are Objects. But is best to descrive them as
 arrays due to the way the indexing works.
+
+ArrayMethods: 
+
+  Array.forEach().
+  push()  adds to front.
+  Array.isArray()  -----> checks if its an array becouse arrays are
+  technically objects.
+  shift() 
+
+  Diff between Arrays and Objects:
+     Arrays use numbered indexes
+     Objects use named indexes
 
 
 */
