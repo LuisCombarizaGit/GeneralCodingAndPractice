@@ -36,11 +36,38 @@ class LinkedList:
             return
 
         last = self.head
-        while(last):
-            print(last.data)
+        while(last.next):
             last = last.next
+        last.next = new_node
 
-        last.next =new_node
+
+    # Function that deletes node at given possition
+    def deleteNode(self,position):
+        # Empty linked list is empty simply return
+        if self.head == None:
+            return
+
+        # Position is zero then remove the head -> make new head
+        temp = self.head  # pointer to head of linked list
+        if position == 0:
+            self.head = temp.next
+            temp = None
+            return
+
+        # Find previous node of the node to be deleted
+        for i in range(position -1):
+            temp = temp.next
+            if temp is None:
+                break
+
+        # If position is more than number of nodes
+        if temp is None:
+            return
+        if temp.next is None:
+            return
+        
+
+
 
 
     # Function that inserts node after a given location TIME COMPLEX: 0(1) constant
@@ -62,13 +89,12 @@ if __name__== '__main__':
     linkedlist.head.next = second
     second.next = third
 
-    linkedlist.printlist()
-    print()
 
-    linkedlist.insertAfter(second,6)
-
+    linkedlist.append(8)
 
     linkedlist.printlist()
+
+
 
 
 
