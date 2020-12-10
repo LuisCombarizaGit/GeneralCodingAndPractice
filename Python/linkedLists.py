@@ -26,6 +26,22 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
 
+    # Function that appends a node at the end of the list
+    def append(self,new_data):
+        # create node -> put data -> set next as None , if list empty than new node is head
+        new_node = Node(new_data)
+
+        if self.head == None:
+            self.head = new_node
+            return
+
+        last = self.head
+        while(last):
+            print(last.data)
+            last = last.next
+
+        last.next =new_node
+
 
     # Function that inserts node after a given location TIME COMPLEX: 0(1) constant
     def insertAfter(self,prev_node,new_data):
