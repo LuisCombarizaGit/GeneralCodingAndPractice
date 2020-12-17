@@ -191,10 +191,46 @@
 #
 #     llist.linkedListCount()
 
+<<<<<<< HEAD
 
 # y = [7,8,3]
 # for index, item in enumerate(y):
 #     print(index,item)
+=======
+        last = self.head
+        while(last.next):
+            last = last.next
+        last.next = new_node
+
+
+    # Function that deletes node at given possition
+    def deleteNode(self,position):
+        # Empty linked list is empty simply return
+        if self.head == None:
+            return
+
+        # Position is zero then remove the head -> make new head
+        temp = self.head  # pointer to head of linked list
+        if position == 0:
+            self.head = temp.next
+            temp = None
+            return
+
+        # Find previous node of the node to be deleted
+        for i in range(position -1):
+            temp = temp.next
+            if temp is None:
+                break
+
+        # If position is more than number of nodes
+        if temp is None:
+            return
+        if temp.next is None:
+            return
+        
+
+
+>>>>>>> 74e46a9db5bf9b9f5a56df790c632e1b79fbd056
 
 # names = ['cosmo', 'pedro', 'Anu', 'Ray']
 # idx = [k for k, v in enumerate(names) if v == 'Anu']
@@ -206,6 +242,7 @@
 
 ## --------------------------- STACK IMPLEMENTATION --------------------------------- ##
 
+<<<<<<< HEAD
 # class Stack():
 #     def __init__(self):
 #         self.stack = []
@@ -284,5 +321,25 @@
 #
 #     def __str__(self):
 #         return str(self.heap)
+=======
+
+if __name__== '__main__':
+    linkedlist = LinkedList() # creating the linked list
+
+    linkedlist.head = Node(1) # head of linked list is not Node with value (1)
+    second = Node(2) # Created a node with value 2
+    third = Node(3) # Created a node with value 3
+
+    linkedlist.head.next = second
+    second.next = third
+
+
+    linkedlist.append(8)
+
+    linkedlist.printlist()
+
+>>>>>>> 74e46a9db5bf9b9f5a56df790c632e1b79fbd056
+
+
 
 
