@@ -4,6 +4,7 @@
 // ------------------------ STACKS --------------------------------//
 // ----------------------------------------------------------------//
 
+// LIFO
 // functions: push, pop, peek, length
 
 // Stack using a array
@@ -75,28 +76,137 @@
 
 // Kind of like an array , but no duplicates and no order.
 
-class mySet {
+// class mySet {
+//   constructor() {
+//     // This var will hold the set
+//     var collection = [];
+
+//     // This method will check for the presence of an element and return true or false
+//     this.has = function (element) {
+//       return collection.indexOf(element) !== -1;
+//     };
+
+//     // This method will return all the values in the set
+//     this.values = function () {
+//       return collection;
+//     };
+
+//     // this method will add an element to the set
+//     this.add = function (element) {
+//       if (!this.has(element)) {
+//         collection.push(element);
+//         return true;
+//       }
+//       return false;
+//     };
+//   }
+// }
+
+// ----------------------------------------------------------------//
+// ------------------------- QUEUE --------------------------------//
+// ----------------------------------------------------------------//
+
+// FIFO
+// Functions : enqueue (add to back --- front is index 0 ---)
+// Functions : dequeue (remove from front -- index 0 -- shift index )
+// Function : print ( print values in the queue)
+// Functions : front ( return value at front of queue -- index 0 --)
+
+// class Queue {
+//   constructor() {
+//     let collection = [];
+
+//     this.print = () => {
+//       console.log(collection);
+//     };
+
+//     // Items are added at the end of the array ( index 0 is front )
+//     this.enqueue = function (element) {
+//       collection.push(element);
+//     };
+
+//     // Items are removed from the begininng of the array ( index 0 is front)
+//     this.dequeue = function () {
+//       return collection.shift();
+//     };
+
+//     // Return the value at the beginning of the queue ( index 0 )
+//     this.front = function () {
+//       return collection[0];
+//     };
+
+//     // Return the size of the queue
+//     this.size = function () {
+//       return collection.length;
+//     };
+
+//     // Return treu if the queue is empty
+//     this.isEmpty = function () {
+//       return collection.length === 0;
+//     };
+//   }
+// }
+
+// var q = new Queue();
+// q.enqueue("a");
+// q.enqueue("b");
+// q.enqueue("c");
+// q.print();
+// q.dequeue();
+// console.log(q.front());
+// q.print();
+
+class PriorityQueue {
   constructor() {
-    // This var will hold the set
-    var collection = [];
+    let collection = [];
 
-    // This method will check for the presence of an element and return true or false
-    this.has = function (element) {
-      return collection.indexOf(element) !== -1;
+    this.printCollection = () => {
+      console.log(collection);
     };
 
-    // This method will return all the values in the set
-    this.values = function () {
-      return collection;
-    };
-
-    // this method will add an element to the set
-    this.add = function (element) {
-      if (!this.has(element)) {
+    this.enqueue = function (element) {
+      if (this.isEmpty()) {
         collection.push(element);
-        return true;
+      } else {
+        let added = false;
+        for (let i = 0; i < collection.length; i++) {
+          // index 1 is the priority of the item added to que queue
+          if (element[1] < collection[i][1]) {
+            collection.splice(i, 0, element);
+            added = true;
+            break;
+          }
+        }
+        if (!added) {
+          collection.push(element);
+        }
       }
-      return false;
+    };
+
+    this.dequeue = function () {
+      var value = collection.shift();
+      return value[0];
+    };
+
+    this.front = function () {
+      return collection[0];
+    };
+
+    this.size = function () {
+      return collection.length;
+    };
+
+    this.isEmpty = function () {
+      return collection.length === 0;
     };
   }
 }
+
+let pq = new PriorityQueue();
+pq.enqueue(["Beau Carner", 2]);
+pq.enqueue(["Beau Carner", 2]);
+pq.enqueue(["Beau Carner", 2]);
+pq.printCollection();
+pq.dequeue();
+pq.front();
+pq.printCollection();
