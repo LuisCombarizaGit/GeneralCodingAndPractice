@@ -547,4 +547,56 @@
 
 
 
+## ------------------- Binary Tree ---------------------
+## Eeach child or parent of the tree can be represented using a
+## Node data structure
+
+# class Node:
+#     def __init__(self,value):
+#         self.left = None
+#         self.right = None
+#         self.val = value
+#
+#
+# root = Node(1)  # Root of tree with value 1
+# root.left = Node(2) # left value of root = Node with value 2 and children NONE
+# root.right = Node(3) # right value of root = Node with value 3 and children NONE
+#
+#
+# root.left.left = Node(4)
+#
+# ##      1
+# #    2     3
+# # 4   N   N   N
+# #
+
+
+########### REVERSE A LINKED LIST ##########
+
+
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def push(self, new_data):
+        new_node = Node(new_data)
+        new_node.next = self.head
+        self.head = new_node
+
+    def reverse(self):
+        prev = None
+        current = self.head
+        while(current is not None):
+              next = current.next
+              current.next = prev
+              prev = current
+              current = next
+        self.head = prev
+
+
 
