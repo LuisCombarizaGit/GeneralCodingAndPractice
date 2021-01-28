@@ -7,14 +7,15 @@ import { FcLike } from "react-icons/fc";
 import { GrMore } from "react-icons/gr";
 import moment from "moment";
 
-function Tweet() {
+// add the {tweet} destructuring
+function Tweet({ tweet }) {
   return (
     <div className="tweet">
-      <Avatar />
+      <Avatar hash={tweet.gravatar} />
       <div className="content">
-        <NameWithHandle />
-        <Time />
-        <Message />
+        <NameWithHandle author={tweet.author} />
+        <Time time={tweet.timestamp} />
+        <Message text={tweet.message} />
         <div className="buttons">
           <ReplyButton />
           <RetweetButton />
@@ -26,30 +27,29 @@ function Tweet() {
   );
 }
 
-function Avatar() {
-  return (
-    <img
-      src="https://www.gravatar.com/avatar/nothing"
-      className="avatar"
-      alt="avatar"
-    />
-  );
+function Avatar({ hash }) {
+  var url = `https://www.gravatar.com/avatar/${hash}`;
+  return <img src={url} className="avatar" alt="avatar" />;
 }
 
-function Message() {
-  return <div className="message">This is less than 140 char</div>;
+function Message({ text }) {
+  return <div className="message">{text}</div>;
 }
 
-function NameWithHandle() {
+function NameWithHandle({ author }) {
+  const { name, handle } = author;
   return (
     <span className="name-with-handle">
-      <span className="name">Your Name</span>
-      <span className="handle">@yourhandle</span>
+      <span className="name">{name}</span>
+      <span className="handle">@{handle}</span>
     </span>
   );
 }
 
-const Time = () => <span className="time">3h ago</span>;
+const Time = ({ time }) => {
+  const timeString = moment(time).fromNow();
+  return <span className="time">{timeString}</span>;
+};
 
 const ReplyButton = () => (
   <span className="reply-button">
@@ -75,4 +75,16 @@ const MoreOptionsButton = () => (
   </span>
 );
 
-ReactDOM.render(<Tweet />, document.querySelector("#root"));
+var testTweet = {
+  message: "Something about cats.",
+  gravatar: "xyz",
+  author: {
+    handle: "catperson",
+    name: "IM CAT",
+  },
+  likes: 2,
+  retweets: 0,
+  timestamp: "2017-07-30 21:0:0",
+};
+
+ReactDOM.render(<Tweet tweet={testTweet} />, document.querySelector("#root"));
