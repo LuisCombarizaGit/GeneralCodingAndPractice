@@ -7,12 +7,13 @@ import { FcLike } from "react-icons/fc";
 import { GrMore } from "react-icons/gr";
 import moment from "moment";
 
-function Tweet({ tweet }) {
+function Tweet() {
   return (
     <div className="tweet">
-      <Avatar hash={tweet.gravatar} />
+      <Avatar />
       <div className="content">
         <NameWithHandle />
+        <Time />
         <Message />
         <div className="buttons">
           <ReplyButton />
@@ -25,56 +26,53 @@ function Tweet({ tweet }) {
   );
 }
 
-var testTweet = {
-  message: "Something about cats.",
-  gravatar: "xyz",
-  author: {
-    handle: "catperson",
-    name: "IAM Cat Person",
-  },
-  likes: 2,
-  retweets: 0,
-  timestamp: "2016-07-30 21:24:37",
-};
-
-ReactDOM.render(<Tweet />, document.querySelector("#root"));
-
-function Avatar({ hash }) {
-  var url = `https://www.gravatar.com/avatar/${hash}`;
-  return <img src={url} className="avatar" alt="avatar" />;
+function Avatar() {
+  return (
+    <img
+      src="https://www.gravatar.com/avatar/nothing"
+      className="avatar"
+      alt="avatar"
+    />
+  );
 }
 
-const Time = ({ time }) => {
-  const timeString = moment(time).fromNow();
-  return <span className="time">{timeString}</span>;
-};
-
-function Message({ text }) {
-  return <div className="message">{text}</div>;
+function Message() {
+  return <div className="message">This is less than 140 char</div>;
 }
 
-function NameWithHandle({ author }) {
-  const { name, handle } = author;
+function NameWithHandle() {
   return (
     <span className="name-with-handle">
-      <span className="name">{name}</span>
-      <span className="handle"> @{hanldle}</span>
+      <span className="name">Your Name</span>
+      <span className="handle">@yourhandle</span>
     </span>
   );
 }
 
-function ReplyButton() {
-  return <FaReply />;
-}
+const Time = () => <span className="time">3h ago</span>;
 
-function RetweetButton() {
-  return <FaRetweet />;
-}
+const ReplyButton = () => (
+  <span className="reply-button">
+    <FaReply />
+  </span>
+);
 
-function LikeButton() {
-  return <FcLike />;
-}
+const RetweetButton = () => (
+  <span className="retweet-button">
+    <FaRetweet />
+  </span>
+);
 
-function MoreOptionsButton() {
-  return <GrMore />;
-}
+const LikeButton = () => (
+  <span className="LikeButton-button">
+    <FcLike />
+  </span>
+);
+
+const MoreOptionsButton = () => (
+  <span className="MoreOptionsButton-button">
+    <GrMore />
+  </span>
+);
+
+ReactDOM.render(<Tweet />, document.querySelector("#root"));
