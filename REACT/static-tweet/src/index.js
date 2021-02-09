@@ -18,8 +18,8 @@ function Tweet({ tweet }) {
         <Message text={tweet.message} />
         <div className="buttons">
           <ReplyButton />
-          <RetweetButton />
-          <LikeButton />
+          <RetweetButton count={tweet.retweets} />
+          <LikeButton count={tweet.likes}/>
           <MoreOptionsButton />
         </div>
       </div>
@@ -57,9 +57,24 @@ const ReplyButton = () => (
   </span>
 );
 
-const RetweetButton = () => (
+function getRetweetCount(count){
+  if(count > 0){
+    return(
+      <span className="retweet-count">
+        {count}
+      </span>
+    );
+  }
+    else{
+      return null;
+    }
+  }
+
+
+const RetweetButton = ({count}) => (
   <span className="retweet-button">
     <FaRetweet />
+    {getRetweetCount(count)}
   </span>
 );
 

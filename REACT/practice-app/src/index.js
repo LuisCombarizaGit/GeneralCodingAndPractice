@@ -1,23 +1,16 @@
-// ES6 module dependency import : creates a new variable called REACT with the contents of the react module
-import React from "react"; //module name installed by npm
+import React from "react";
 import ReactDOM from "react-dom";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-function HelloWorld() {
-  return (
-    <div>
-      {" "}
-      <Hello />
-      <World />!
-    </div>
-  );
-}
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
 
-function Hello() {
-  return <span>Hello</span>;
-}
-
-function World() {
-  return <span>World</span>;
-}
-
-ReactDOM.render(<HelloWorld />, document.querySelector("#root"));
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
