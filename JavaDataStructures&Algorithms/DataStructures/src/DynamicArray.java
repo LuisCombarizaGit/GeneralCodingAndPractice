@@ -11,6 +11,7 @@ public class DynamicArray<T> implements Iterable<T> {
     private int len = 0; // length user thinks the array is
     private int capacity = 0; // Actual array size
 
+    // Two constructors ---
     public DynamicArray() {
         this(16);
     }
@@ -18,8 +19,9 @@ public class DynamicArray<T> implements Iterable<T> {
     public DynamicArray(int capacity) {
         if (capacity < 0) throw new IllegalArgumentException("Illegal Capacity: " + capacity);
         this.capacity = capacity;
-        arr = (T[]) new Object[capacity];
+        arr = (T[]) new Object[capacity];  // Casting it to type T
     }
+    // ---------------------
 
     public int size() {
         return len;
@@ -31,6 +33,10 @@ public class DynamicArray<T> implements Iterable<T> {
 
     public T get(int index) {
         return arr[index];
+    }
+
+    public void set(int index, T elem) {
+        arr[index] = elem;
     }
 
     public void clear() {
