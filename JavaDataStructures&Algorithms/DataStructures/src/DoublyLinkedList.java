@@ -54,8 +54,22 @@ public class DoublyLinkedList<T> {
         return size() == 0;
     }
 
+    // Add an element to the tail of the linked list, O(1)
     public void add(T elem) {
         addLast(elem);
+    }
+
+    // Add and element to the beginning of this linked list, O(1)
+    public void addFirst(T elem) {
+
+        // The linked list is empty
+        if (isEmpty()) {
+            head = teil = new Node<T>(elem, null, null);
+        } else {
+            head.prev = new Node<T>(elem, null, head);
+            head = head.prev;
+        }
+        size++;
     }
 
     // Add a node to the tail of the linked list, 0(1)
@@ -120,7 +134,7 @@ public class DoublyLinkedList<T> {
 
     // Remove an arbitrary node from the linked list, O(1)
     private T remove(Node<T> node) {
-        // Id the node to remove is somewhere either at the head or the tail handle them
+        // If the node to remove is somewhere either at the head or the tail handle them
         if (node.prev == null) return removeFirst();
         if (node.next == null) return removeLast();
 
@@ -139,7 +153,6 @@ public class DoublyLinkedList<T> {
 
         // Return the data in the node we just removed
         return data;
-
 
     }
 
@@ -198,14 +211,14 @@ public class DoublyLinkedList<T> {
 
         // Support searching for null
         if (obj == null) {
-            for (; trav != null; trav = trav.next, index++) {
+            for (trav = head; trav != null; trav = trav.next, index++) {
                 if (trav.data == null) {
                     return index;
                 }
             }
             // Search for non null object
         } else
-            for (; trav != null; trav = trav.next, index++) {
+            for (trav = head; trav != null; trav = trav.next, index++) {
                 if (obj.equals(trav.data)) {
                     return index;
                 }
