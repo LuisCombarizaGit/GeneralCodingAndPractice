@@ -13,8 +13,6 @@ public class Queue {
     public Queue() {
     }
 
-    ;
-
     public Queue(T firstElem) {
         Enqueue(firstElem);
     }

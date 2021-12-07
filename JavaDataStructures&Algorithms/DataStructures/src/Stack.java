@@ -28,6 +28,12 @@ public class Stack<T> implements Iterable<T> {
         return size() == 0;
     }
 
+    // Push an element on to the stack
+    public void push(T elem) {
+        list.addLast(elem);
+    }
+
+
     // Pop an element off the stack , Throws an error if the stack id empty
     public T pop() {
         if (isEmpty()) throw new java.util.EmptyStackException();
