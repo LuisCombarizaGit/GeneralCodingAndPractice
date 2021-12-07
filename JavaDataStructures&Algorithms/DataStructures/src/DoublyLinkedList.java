@@ -83,7 +83,7 @@ public class DoublyLinkedList<T> {
 
         // Extract the data at the head and move the head pointer forwards one node
         T data = head.data;
-        haed = head.next;
+        head = head.next;
         size--;
 
         // If the list is empty set the tail to null
@@ -225,7 +225,7 @@ public class DoublyLinkedList<T> {
         sb.append("[ ");
         Node<T> trav = head;
         while (trav != null) {
-            sb.append(trav.data + ", ");
+            sb.append(trav.data).append(", ");
             trav = trav.next;
         }
         sb.append(" ]");
