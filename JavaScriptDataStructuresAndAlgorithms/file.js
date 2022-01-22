@@ -1,7 +1,7 @@
 // ============================= REVIEW 2021 =============================== //
 
 // =============================  STACKS  ================================== //
-// Stack implementation can be done using an array with build in methods such 
+// Stack implementation can be done using an array with build in methods such
 // as pop() , push ()
 
 // var letters = []; // This represents the stack
@@ -75,7 +75,6 @@
 // console.log(myStack.pop());
 // console.log(myStack.peek());
 
-
 /// ====================== SETS ====================== //
 //  ================= No duplicates ================== //
 //  =============== No especific order ============= //
@@ -145,7 +144,6 @@
 //         return intersectionSet;
 //     }
 
-
 //     // This method will return the difference of two sets as a new set
 //     this.difference = function(otherSet){
 //         var differenceSet = new mySet();
@@ -167,7 +165,6 @@
 //     }
 // }
 
-
 // var setA = new mySet();
 // var setB = new mySet();
 // setA.add('a');
@@ -179,7 +176,6 @@
 // console.log(setA.values());
 // console.log(setB.values());
 // console.log(setA.subset(setB));
-
 
 ///  ===================  QUEUE ======================= ///
 ///  ============== FIRST IN FIRST OUT =============== ///
@@ -221,7 +217,7 @@
 // console.log(q.front());
 // q.print();
 
-// ==============  Priority queue ============ // 
+// ==============  Priority queue ============ //
 // function PriorityQueue() {
 //     var collection = [];
 //     this.printCollection = function(){
@@ -255,7 +251,7 @@
 //     this.front = function(){
 //         return collection[0];
 //     };
-    
+
 //     this.size = function(){
 //         return collection.length;
 //     };
@@ -265,7 +261,6 @@
 //     }
 
 // }
-
 
 // var pq = new PriorityQueue();
 // pq.enqueue(['Luis', 2]);
@@ -277,144 +272,286 @@
 // pq.front();
 // pq.printCollection();
 
-
-
-
 // ==================== Binary Serach Tree ================ //
 
-class Node { 
-    constructor(data, left = null, right = null ){
-        this.data = data;
-        this.left = left;
-        this.right = right;
-    }
+// class Node {
+//     constructor(data, left = null, right = null ){
+//         this.data = data;
+//         this.left = left;
+//         this.right = right;
+//     }
+// }
+
+// class BST {
+//     constructor(){
+//         this.root = null;
+//     }
+//     // This is how you define a function when dealing with classess
+//     add(data){
+//         const node = this.root;
+//         if (node === null){
+//             this.root = new Node(data);
+//             return;
+//         }
+//         else {
+//             // Recursive function to check the nodes in the tree
+//             const searchTree = function(node){
+//                 if(data < node.data){
+//                     if(node.left === null){
+//                         node.left = new Node(data);
+//                         return;
+//                     } else if(node.left !== null){
+//                         return searchTree(node.left)
+//                     }
+//                 } else if (data > node.data){
+//                     if (node.right === null){
+//                         node.right = new Node(data);
+//                         return;
+//                     } else if (node.right !== null){
+//                         return searchTree(node.right);
+//                     }
+//                 } else {
+//                     return null;
+//                 }
+//             };
+//             return searchTree(node);
+//         }
+//     }
+
+//     findMin(){
+//         let current = this.root;
+//         while(current.left !== null){
+//             current = current.left;
+//         }
+//         return current.data;
+//     }
+
+//     findMax(){
+//         let current = this.root;
+//         while(current.right !== null){
+//             current = current.right;
+//         }
+//         return current.data;
+//     }
+
+//     find(data){
+//         let current = this.root;
+//         while(current.data !== data){
+//             if(data < current.data){
+//                 current = current.left;
+//             }else{
+//             current = current.right;
+//         }
+//         if(current === null){
+//             return null;
+//             }
+//          }
+//     }
+
+//     isPresent(data){
+//         let current = this.root;
+//         while(current){
+//             if(data === current.data){
+//                 return true;
+//             }
+//             if (data < current.data){
+//                 current = current.left;
+//             } else {
+//                 current = current.right;
+//             }
+//         }
+
+//         return false;
+//     }
+
+//     remove(data){
+//         const removeNode = function(node, data){
+//             if(node == null){
+//                 return null;
+//             }
+//             if(data == node.data){
+//                 // node has no children
+//                 if(node.left == null && node.right == null){
+//                     return null;
+//                 }
+//                 // node has no left child
+//                 if(node.left == null){
+//                     return node.right;
+//                 }
+//                 // node has no right child
+//                 if(node.right == null){
+//                     return node.left;
+//                 }
+
+//                 // node has two children
+//                 var tempNode = node.right;
+//                 while(tempNode.left !== null){
+//                     tempNode = tempNode.left;
+//                 }
+
+//                 node.data = tempNode.data;
+//                 node.right = removeNode(node.right, tempNode.data);
+//                 return node;
+//             }   else if(data < node.data){
+//                 node.left = removeNode(node.left, data);
+//                 return node;
+//             }   else {
+//                 node.right = removeNode(node.right, data);
+//                 return node;
+//             }
+
+//             this.root = removeNode(this.root, data);
+
+//         }
+//     }
+
+// }
+
+// =================================================================== //
+
+//  Request using Call back fucntion
+
+// const fakeRequestCallback = (url, success, failure) => {
+//   const delay = Math.floor(Math.random() * 4500) + 500;
+//   console.log(delay);
+//   setTimeout(() => {
+//     if (delay > 3000) {
+//       failure("Connection Timeout !");
+//     } else {
+//       success(`Here is your fake date from ${url}`);
+//     }
+//   }, delay);
+// };
+
+// // Request using Promises
+
+// const fakeRequestPromise = (url) => {
+//   return new Promise((resolve, reject) => {
+//     const delay = Math.floor(Math.random() * 4500) + 500;
+//     setTimeout(() => {
+//       if (delay > 4000) {
+//         reject("Connection Timeout !");
+//       } else {
+//         resolve(`Here is your fake date from ${url}`);
+//       }
+//     }, delay);
+//   });
+// };
+
+// -------------- Call back request ------------------
+// console.log("FakeRequestCallback - Test Start");
+
+// fakeRequestCallback("books.com", success, failure);
+
+// function success(a) {
+//   console.log(a);
+// }
+
+// function failure(b) {
+//   console.log(b);
+// }
+
+// -------------- Call back request ------------------
+
+// -------------------- Promise  ---------------------
+// const request = fakeRequestPromise("wwww.hello");
+// request.then(() => {
+//   console.log("Worked.");
+// });
+
+// ----------------------- Fetch API -------------------------
+// fetch("https://api.cryptonator.com/api/ticker/btc-usd")
+//   .then((res) => {
+//     console.log("Response", res);
+//     return res.json();
+//   })
+//   .then((data) => {
+//     console.log("Data Parsed :", data);
+//     console.log(data.ticker.price);
+//   });
+
+// const ApiData = async () => {
+//   const ApiFetch = await fetch(
+//     "https://api.cryptonator.com/api/ticker/btc-usd"
+//   );
+//   console.log(ApiFetch);
+//   const Data = await ApiFetch.json();
+//   console.log("Parsed Data:", Data.ticker.price);
+// };
+
+// ApiData();
+
+//  Same API request using AXIOS
+
+// Using promises:
+// axios
+//   .get("https://api.cryptonator.com/api/ticker/btc-usd")
+//   .then((res) => {
+//     console.log(res.data.ticker.price);
+//   })
+//   .catch((e) => {
+//     console.log("Error", e);
+//   });
+
+// // Using Async:
+// const ApiRequest = async () => {
+//   try {
+//     const res = await axios.get(
+//       "https://api.cryptonator.com/api/ticker/btc-usd"
+//     );
+//     console.log(res.data);
+//   } catch (e) {
+//     console.log("Error:", e);
+//   }
+// };
+
+// ApiRequest();
+
+//  Node class
+
+class Node {
+  constructor(data = null) {
+    this.data = data;
+    this.next = null;
+  }
 }
 
-class BST {
-    constructor(){
-        this.root = null;
-    }
-    // This is how you define a function when dealing with classess
-    add(data){
-        const node = this.root;
-        if (node === null){
-            this.root = new Node(data);
-            return;
-        }
-        else {
-            // Recursive function to check the nodes in the tree
-            const searchTree = function(node){
-                if(data < node.data){
-                    if(node.left === null){
-                        node.left = new Node(data);
-                        return;
-                    } else if(node.left !== null){
-                        return searchTree(node.left)
-                    }
-                } else if (data > node.data){
-                    if (node.right === null){
-                        node.right = new Node(data);
-                        return;
-                    } else if (node.right !== null){
-                        return searchTree(node.right);
-                    }
-                } else {
-                    return null;
-                }
-            };
-            return searchTree(node);
-        }
-    }
+// Reverse function
+function reverse(node) {
+  let prev = null;
+  let current = node;
+  let next = node;
+  while (current != null) {
+    next = current.next;
+    current.next = prev;
+    prev = current;
+    current = next;
+  }
 
-    findMin(){
-        let current = this.root;
-        while(current.left !== null){
-            current = current.left;
-        }
-        return current.data;
-    }
-
-    findMax(){
-        let current = this.root;
-        while(current.right !== null){
-            current = current.right;
-        }
-        return current.data;
-    }
-
-    find(data){
-        let current = this.root;
-        while(current.data !== data){
-            if(data < current.data){
-                current = current.left;
-            }else{
-            current = current.right;
-        }
-        if(current === null){
-            return null;
-            }
-         }
-    }
-
-
-    isPresent(data){
-        let current = this.root;
-        while(current){
-            if(data === current.data){
-                return true;
-            }
-            if (data < current.data){
-                current = current.left;
-            } else {
-                current = current.right;
-            }
-        }
-
-        return false;
-    }
-
-    remove(data){
-        const removeNode = function(node, data){
-            if(node == null){
-                return null;
-            }
-            if(data == node.data){
-                // node has no children
-                if(node.left == null && node.right == null){
-                    return null;
-                }
-                // node has no left child
-                if(node.left == null){
-                    return node.right;
-                }
-                // node has no right child
-                if(node.right == null){
-                    return node.left;
-                }
-
-                // node has two children
-                var tempNode = node.right;
-                while(tempNode.left !== null){
-                    tempNode = tempNode.left;
-                }
-
-                node.data = tempNode.data;
-                node.right = removeNode(node.right, tempNode.data);
-                return node;
-            }   else if(data < node.data){
-                node.left = removeNode(node.left, data);
-                return node;
-            }   else {
-                node.right = removeNode(node.right, data);
-                return node;
-            }
-
-            this.root = removeNode(this.root, data);
-
-        }
-    }
-
-
+  node = prev;
+  return node;
 }
 
+// Printing function
+function printList(node) {
+  let chainView = "";
+  while (node != null) {
+    chainView += node.data + "->";
+    node = node.next;
+  }
+  chainView += "null";
+  console.log(chainView);
+}
 
+// Driver
+
+head = new Node(85);
+head.next = new Node(15);
+head.next.next = new Node(4);
+head.next.next.next = new Node(20);
+
+console.log("Given Linked list:");
+printList(head);
+head = reverse(head);
+console.log("Reversed linked list:");
+printList(head);
